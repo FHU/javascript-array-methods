@@ -23,14 +23,7 @@ consoles.forEach( gameSystem => console.log(gameSystem));
 
 // sort() 
 
-const sortedGameSystems = consoles.sort( function( c1, c2) {
-    if( c1.releaseYear > c2.releaseYear ) {
-        return 1;
-    }
-    else {
-        return -1;
-    }
-});
+const sortedGameSystems = consoles.sort( ( c1, c2) => c1.releaseYear - c2.releaseYear);
 
 console.log(sortedGameSystems);
 
@@ -39,3 +32,10 @@ console.log(sortedGameSystems);
 const consoleNames = consoles.map( gameSystem => gameSystem.name );
 
 console.log(consoleNames);
+
+
+const filteredNintendoConsoles = consoles
+                        .filter( gameSystem => gameSystem.brand === 'Nintendo' )
+                        .map( gameSystem => `${gameSystem.name} - ${gameSystem.releaseYear}`);
+
+console.log(filteredNintendoConsoles);
